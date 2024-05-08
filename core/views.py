@@ -25,16 +25,6 @@ class PurchaseOrderRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAP
     serializer_class = PurchaseOrderSerializer
 
 
-class VendorListCreateAPIView(generics.ListCreateAPIView):
-    queryset = Vendor.objects.all()
-    serializer_class = VendorSerializer
-
-
-class VendorRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Vendor.objects.all()
-    serializer_class = VendorSerializer
-
-
 class VendorPerformanceAPIView(generics.RetrieveAPIView):
     queryset = Vendor.objects.all()
     serializer_class = VendorSerializer

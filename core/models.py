@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Vendor(models.Model):
     class Meta:
@@ -23,6 +24,7 @@ class PurchaseOrder(models.Model):
     class Meta:
         verbose_name = "Purchase Order"
         verbose_name_plural = "Purchase Orders"
+
     po_number = models.CharField(max_length=50, unique=True)
     vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE, related_name='purchase_orders')
     order_date = models.DateTimeField()
@@ -36,6 +38,10 @@ class PurchaseOrder(models.Model):
 
 
 class HistoricalPerformance(models.Model):
+    class Meta:
+        verbose_name = "Historical Performance"
+        verbose_name_plural = "Historical Performance"
+        
     vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE)
     date = models.DateTimeField()
     on_time_delivery_rate = models.FloatField()
