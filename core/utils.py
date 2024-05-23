@@ -1,7 +1,7 @@
 from django.db.models import F, ExpressionWrapper, DurationField
 from datetime import timedelta
-
 from .models import PurchaseOrder, Vendor
+
 
 def calculate_performance_metrics(vendor):
     completed_orders = PurchaseOrder.objects.filter(vendor=vendor, status='completed')
@@ -26,6 +26,7 @@ def calculate_performance_metrics(vendor):
     vendor.fulfillment_rate = (successful_orders.count() / total_completed_orders) * 100 if total_completed_orders > 0 else 0
 
     vendor.save()
+
 
 def get_vendor_performance_metrics(vendor_id):
     try:
